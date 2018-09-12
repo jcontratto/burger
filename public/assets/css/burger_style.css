@@ -1,0 +1,38 @@
+li {
+    padding: 5px;
+    margin: 5px;
+    background: #faebd7;
+  }
+
+  h1, h2 {
+    font-family: "Oleo script", cursive;
+    color: whitesmoke;
+  }
+
+  body {
+    background-image: url('../img/burger1.jpg');
+    font-family: 'Coiny', cursive, serif;
+    font-size: 16px;
+    background-size: cover;
+    color: whitesmoke;
+  }
+
+  #burger1 {
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+  }
+
+  .label {
+    font-weight: bold;
+  }
+  
+  .create-update-form {
+    padding: 5px;
+    margin: 5px;
+    background: aqua;
+  }
+  
+  /*.container {
+    margin-bottom: 5px;
+  }
