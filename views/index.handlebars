@@ -17,7 +17,13 @@
             </div>
 
             <div class="col s6">
+                <p>Burgers Devoured!</p>
                 {{#each burgers}} {{#if this.devoured}}
+                <div>   
+                    <form action="/burgers/{{this.id}}?_method=PUT" method="POST">
+                        <button type="submit" class="burgerAvailable btn btn-lg btn-primary">{{this.burger_name}}</button>
+                    </form>
+                </div>
                 <div class='burgerEaten'>
                     <div>
                         {{this.burger_name}}

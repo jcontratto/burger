@@ -4,6 +4,10 @@ li {
     background: #faebd7;
   }
 
+  p {
+    color: whitesmoke;
+  }
+
   h1, h2 {
     font-family: "Oleo script", cursive;
     color: whitesmoke;
