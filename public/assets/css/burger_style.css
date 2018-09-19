@@ -8,10 +8,10 @@ li {
     color: whitesmoke;
   }
 
-  h1, h2 {
+ /* h1, h2 {
     font-family: "Oleo script", cursive;
     color: whitesmoke;
-  }
+  } */
 
   body {
     background-image: url('../img/burger1.jpg');
