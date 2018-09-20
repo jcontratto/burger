@@ -1,14 +1,17 @@
 
 
-<h1><center>Crush That Burger!</h1></center>
+<h1><center style="color: aliceblue;">Crush That Burger!</center></h1>
+
+
     <br>
         <br>
             <br>
+
 <main>
     <div class="container">
         <div class="row">
             <div class="col s6">
-                <p>Choose the burger you want to devour:</p>  
+                <h4><p>Choose the burger you want to devour!</p></h4>
                 {{#each burgers}} {{#unless this.devoured}}
                 <div>   
                     <form action="/api/burger/{{this.id}}?_method=PUT" method="POST">
@@ -19,7 +22,7 @@
             </div>
 
             <div class="col s6">
-                <p>Burgers Devoured!</p>
+               <h4><p>Burgers Devoured!</p></h4>
                 {{#each burgers}} {{#if this.devoured}}
                 <div>   
                     <form action="/api/burger/{{this.id}}?_method=PUT" method="POST">
@@ -42,11 +45,11 @@
 
 <div class="row">
     <div class="col s12">
-        {{!-- <form action="/api/burger" class="create-form" method="POST"> --}}
+        <form action="/api/burger" class="create-form" method="POST"> 
+        <!--<form action="/api/burger/{{this.id}}?_method=PUT" method="POST"> -->
         <form>
             <input type="text" id="name" name="burger_name" placeholder="Add Another Burger">
             <button type="submit" id="burgerSubmit" class="addBurgerButton">Add Burger</button>
         </form>
     </div>
-    
 </div>

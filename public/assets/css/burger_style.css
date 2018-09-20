@@ -1,17 +1,7 @@
-li {
-    padding: 5px;
-    margin: 5px;
-    background: #faebd7;
-  }
 
   p {
     color: whitesmoke;
   }
-
- /* h1, h2 {
-    font-family: "Oleo script", cursive;
-    color: whitesmoke;
-  } */
 
   body {
     background-image: url('../img/burger1.jpg');
