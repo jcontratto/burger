@@ -1,31 +1,29 @@
+//express require NPM
 var express = require("express");
+//body-parser require NPM
 var bodyParser = require("body-parser");
-
+//Port
 var PORT = process.env.PORT || 8093;
 
 var app = express();
 
-// Serve static content for the app from the "public" directory 
-app.use(express.static("public"));
+//Static erver content for Public folder
+app.use(express.static("Public"));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// parse application/json
-app.use(bodyParser.json());
-
-// Set Handlebars.
+//Parse for application for json
 var exphbs = require("express-handlebars");
 
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.engine("handlebars", exphbs({ defualtLayout: "main"}));
 app.set("view engine", "handlebars");
 
-// Import routes and give access
+//import routes and give access to those routes
 var routes = require("./controllers/burgers_controller.js");
 
 app.use(routes);
 
-// Start server
+//This starts the server
 app.listen(PORT, function() {
-  
-  console.log("Server listening on: http://localhost:" + PORT);
+    console.log("Server listening on: http://localhost:" + PORT);
 });

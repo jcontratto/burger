@@ -1,60 +1,66 @@
+//NPM express
 var express = require("express");
 
+//Router
 var router = express.Router();
 
-// Import the model (burger.js) to use its database functions.
+//Import burger.hs for database
 var burger = require("../models/burger.js");
 
-// Create all our routes 
-router.get("/", function(req, res) {
-  burger.all(function(data) {
-    var hbsObject = {
-      burgers: data
-    };
-    // console.log(hbsObject);
-    res.render("index", hbsObject);
-  });
+//Create all of our routes
+router.get("/", function (req, res) {
+    burger.all(function (data) {
+        var hbsObject = {
+            burgers: data
+        };
+        //console.log(hbsObject);
+        res.render("index", hbsObject);
+    });
 });
 
-router.post("/api/burger", function(req, res) {
-  console.log('route hit')
-  burger.create([req.body.name], function(result) {
-
-// Send back the ID
-res.json({ id: result.insertId });
-  });
+//POST
+router.post("/api/burger", function (req, res) {
+    console.log("route hit!")
+    burger.create([req.body.name], function (result) {
+        //send back ID
+        res.json({ id: result.insertId });
+    });
 });
 
-router.put("/api/burger/:id", function(req, res) {
-  var condition = "id = " + req.params.id;
+//PUT routes
+router.put("/api/burger/ :id", function (req, res) {
+    var condition = "id = " + req.params.id;
+    //console.log("condition", condition);
 
-  //console.log("condition", condition);
+    //Update for burger
+    burger.update(req.body, condition, function (result) {
+        devoured: true
+    },// req.body.devour
+        condition, function (data) {
+            if (result.changedRows == 0) {
+                //Giver err if routes dont exist
+                return res.status(404).end();
+            } else {
+                res.status(200).end();
+            }
+        });
 
-  burger.update(req.body, condition, function(result) {
-    devoured: true // req.body.devour
-  }, condition, function(data) {
-   
-    if (result.changedRows == 0) {
-      //Give error if routes dont exist
-      return res.status(404).end();
-    } else {
-      res.status(200).end();
-    }
-  });
 });
 
-router.delete("/api/burger/:id", function(req, res) {
-  var condition = "id = " + req.params.id;
+//Delete
+router.delete("/api/burger/:id", function (req, res) {
+    var condition = "id = " + req.params.id;
 
-  burger.delete(condition, function(result) {
-    if (result.affectedRows == 0) {
-      //Give error if rows werent changed
-      return res.status(404).end();
-    } else {
-      res.status(200).end();
-    }
-  });
+    burger.delete(condition, function (result) {
+        if (result.affectedRows == 0) {
+            //Give error for rows that arent changed
+            return res.status(404).end();
+        } else {
+            res.status(200).end();
+        }
+
+    });
 });
 
-// Export routes for server.js 
+//Export routes for server.js
 module.exports = router;
