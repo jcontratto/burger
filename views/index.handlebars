@@ -11,7 +11,7 @@
                 <p>Choose the burger you want to devour:</p>  
                 {{#each burgers}} {{#unless this.devoured}}
                 <div>   
-                    <form action="/burgers/{{this.id}}?_method=PUT" method="POST">
+                    <form action="/api/burger/{{this.id}}?_method=PUT" method="POST">
                         <button type="submit" class="burgerAvailable btn btn-lg btn-primary">{{this.burger_name}}</button>
                     </form>
                 </div>
@@ -22,7 +22,7 @@
                 <p>Burgers Devoured!</p>
                 {{#each burgers}} {{#if this.devoured}}
                 <div>   
-                    <form action="/burgers/{{this.id}}?_method=PUT" method="POST">
+                    <form action="/api/burger/{{this.id}}?_method=PUT" method="POST">
                         <button type="submit" class="burgerAvailable btn btn-lg btn-primary">{{this.burger_name}}</button>
                     </form>
                 </div>
@@ -42,9 +42,10 @@
 
 <div class="row">
     <div class="col s12">
-        <form action="/burgers" method="POST">
+        {{!-- <form action="/api/burger" class="create-form" method="POST"> --}}
+        <form>
             <input type="text" id="name" name="burger_name" placeholder="Add Another Burger">
-            <button type="submit" class="addBurgerButton">Add Burger</button>
+            <button type="submit" id="burgerSubmit" class="addBurgerButton">Add Burger</button>
         </form>
     </div>
     
