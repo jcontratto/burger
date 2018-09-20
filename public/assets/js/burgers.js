@@ -6,7 +6,7 @@ $(function () {
         };
 
         // Send the PUT request.
-        $.ajax("/api/burgers/" + id, {
+        $.ajax("/api/burger/" + id, {
             type: "PUT",
             data: updated
         }).then(
@@ -18,7 +18,7 @@ $(function () {
     });
 
     $(".create-form").on("submit", function(event) {
-        // Make sure to preventDefault on a submit event.
+        //  prevent default on a submit event.
         event.preventDefault();
 
         var newName = $(["newName = burger_name"]).val().trim();
@@ -29,13 +29,13 @@ $(function () {
         };
 
         // Send the POST request.
-        $.ajax("/api/burgers", {
+        $.ajax("/api/burger", {
             type: "POST",
             data: burgerName
         }).then(
             function() {
                 console.log("created new burger name");
-                // Reload the page to get the updated list
+                // Reload page
                 location.reload();
             } 
         );
@@ -51,7 +51,7 @@ $(function () {
         }).then(
             function() {
                 console.log("deleted burgers", id);
-                // Reload the page to get the updated list
+                // Reload page
                 location.reload();
             }
         );

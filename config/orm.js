@@ -30,7 +30,7 @@ function objToSql(ob) {
     }
   }
 
-  // translate array of strings to a single comma-separated string
+  // translate array of strings to a single string
   return arr.toString();
 }
 
@@ -65,7 +65,7 @@ var orm = {
       cb(result);
     });
   },
-  // An example of objColVals would be {name: panther, sleepy: true}
+
   update: function(table, objColVals, condition, cb) {
     var queryString = "UPDATE " + table;
 
