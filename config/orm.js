@@ -47,13 +47,13 @@ var orm = {
   },
   create: function(table, cols, vals, cb) {
     var queryString = "INSERT INTO " + table + 'values (TESTING1111)';
-    // vals = '789'
-    // queryString += " (";
-    // queryString += cols.toString();
-    // queryString += ") ";
-    // queryString += "VALUES (";
-    // queryString += printQuestionMarks(vals.length);
-    // queryString += ") ";
+     vals = '789'
+     queryString += " (";
+     queryString += cols.toString();
+     queryString += ") ";
+     queryString += "VALUES (";
+     queryString += printQuestionMarks(vals.length);
+     queryString += ") ";
 
     console.log(queryString);
     console.log(vals)
@@ -84,20 +84,6 @@ var orm = {
       cb(result);
     });
   },
-  delete: function(table, condition, cb) {
-    var queryString = "DELETE FROM " + table;
-    queryString += " WHERE ";
-    queryString += condition;
-
-    connection.query(queryString, function(err, result) {
-      if (err) {
-        throw err;
-      }
-
-      cb(result);
-    });
-  }
 };
-
 // Export the orm object for the model (burger.js).
 module.exports = orm;
