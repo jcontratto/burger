@@ -10,22 +10,21 @@ app.use(express.static("public"));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// parse application/json
 app.use(bodyParser.json());
 
-// Set Handlebars.
+// Setting handlebars
 var exphbs = require("express-handlebars");
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-// Import routes and give access
+// Give access to imported routes
 var routes = require("./controllers/burgers_controller.js");
 
 app.use(routes);
 
 // Start server
-app.listen(PORT, function() {
-  
+app.listen(PORT, function () {
+
   console.log("Server listening on: http://localhost:" + PORT);
 });

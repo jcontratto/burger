@@ -1,8 +1,8 @@
+
 // Import MySQL connection.
 var connection = require("./connection.js");
 
 // Helper function for SQL syntax.
-
 function printQuestionMarks(num) {
   var arr = [];
 
@@ -17,7 +17,7 @@ function printQuestionMarks(num) {
 function objToSql(ob) {
   var arr = [];
 
-  // loop through the keys and push the key/value as a string int arr
+  // loop through the keys and push the key/value as a string into arr
   for (var key in ob) {
 
     arr.push(key + "=" + ob[key]);
