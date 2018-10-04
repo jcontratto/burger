@@ -29,16 +29,16 @@ router.post("/burgers/create", function (req, res) {
 //PUT function
 router.put("/burgers/:id", function (req, res) {
   //console.log("condition", condition);
-
+ console.log("burger id here" + req.params.id);
   //Update new burger function
   burger.update(req.params.id, function (result) {
     console.log(result);
-    //if (result.changedRows == 0) {
+    if (result.changedRows == 0) {
     //Give error if routes dont exist
-    //  return res.status(404).end();
-    // } else {
-    // res.status(200).end();
-    //  }
+     return res.status(404).end();
+     } else {
+     res.status(200).end();
+      }
   });
 });
 // Export routes for server.js 
